@@ -33,6 +33,18 @@ function fetchData(url, cb) {
 	xhr.send();
 }
 
+function makeSummary(tags, response) {
+	resultsSummary.innerHTML =
+		"" +
+		"<p>" +
+		"Query of " +
+		tags +
+		" returned " +
+		response.items.length +
+		" results" +
+		"</p>";
+}
+
 const resultsSummary = document.querySelector("#results-summary");
 const resultsBody = document.querySelector("#results-body");
 
@@ -45,15 +57,7 @@ addListener("#form-unanswered", "submit", (e) => {
 		tags;
 
 	fetchData(url, (response) => {
-		resultsSummary.innerHTML =
-			"" +
-			"<p>" +
-			"Query of " +
-			tags +
-			" returned " +
-			response.items.length +
-			" results" +
-			"</p>";
+		makeSummary(tags, response);
 
 		resultsBody.innerHTML = response.items
 			.map(function (item) {
@@ -89,15 +93,7 @@ addListener("#form-answerers", "submit", (e) => {
 		"/top-answerers/all_time?site=stackoverflow";
 
 	fetchData(url, (response) => {
-		resultsSummary.innerHTML =
-			"" +
-			"<p>" +
-			"Query of " +
-			tags +
-			" returned " +
-			response.items.length +
-			" results" +
-			"</p>";
+		makeSummary(tags, response);
 
 		resultsBody.innerHTML = response.items
 			.map(function (item) {
