@@ -1,4 +1,5 @@
 # Stage 1: Final Exercise
+## [Live Link](https://gsg-g11.github.io/software-design-final-excersie-zaher/)
 
 This is the final exercise of stage 1. You have been given a small working app. To try it out, open the `index.html` file in this directory in your browser.
 
